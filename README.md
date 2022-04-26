@@ -48,7 +48,7 @@ ___
 
 ## Project Goals
 ,
-Given 2021 rehab facility conditions data, identify what condidition has the most occurrences
+Given 2021 rehab facility conditions data, identify what condidition has the most occurrences. Train
 
 ___
 
@@ -76,8 +76,8 @@ ___
 | Variable              | Meaning      |
 | --------------------- | ------------ |
 | ccn                   | The CCN is used to identify the facility listed.|
-| facility              | Facility name  Q |
-| address               | Facility address  |
+| facility_name         | Facility name |
+| address               | Facility address |
 | state                 | Facility state |
 | zip_code              | Two-character postal code where the facility is located |
 | county_name           | Facility county |
@@ -99,14 +99,8 @@ ___
 git@github.com:AJMartinezLlanes/personal-project.git
 ```
 2. You will need Pandas, Numpy, Matplotlib, Seaborn, SKLearn, statsmodels, and prophet installed on your machine.
-3. If you don't have login credentials for the MySQL database hosted at data.codeup.com acquire login credentials.
-4. Create a file in the main directory titled "env.py" and put your login credentials in the following format:
-```python
-username = "your_username"
-password = "your_password"
-hostname = "data.codeup.com"
-```
-5. Now you can start a Jupyter Notebook session and execute the code blocks in the superstore_sales_report.ipynb notebook.
+3. File can be found at: https://data.cms.gov/provider-data/dataset/ka5z-ibe3
+4. Now you can start a Jupyter Notebook session and execute the code blocks in the medicare_conditions.ipynb notebook.
 
 ___
 
