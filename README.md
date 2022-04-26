@@ -47,8 +47,8 @@ ___
 ___
 
 ## Project Goals
-
-Given four years of sales data, identify sales patterns in order to produce a sales, and profit, forecast for 2018, and determine what courses of action will lead to increased sales in the future.
+,
+Given 2021 rehab facility conditions data, identify what condidition has the most occurrences
 
 ___
 
@@ -75,13 +75,18 @@ ___
 
 | Variable              | Meaning      |
 | --------------------- | ------------ |
-| O            | O |
-| R           | R |
-| C              | Ca |
-| S                 | S |
-| Q              | Q |
-| D              | D |
-| P                | P |
+| ccn                   | The CCN is used to identify the facility listed.|
+| facility              | Facility name  Q |
+| address               | Facility address  |
+| state                 | Facility state |
+| zip_code              | Two-character postal code where the facility is located |
+| county_name           | Facility county |
+| phone_number          | Facility ten digit telephone number |
+| cms_region            | The CMS region where the facility is located. Below is a key to the location of the regional offices and the states covered by each CMS region:<p> <p>1 = Boston: <p>Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Vermont <p>2 = New York: <p>New Jersey, New York, Puerto Rico, Virgin Islands <p>3 = Philadelphia: <p>Delaware, District of Columbia, Maryland, Pennsylvania, Virginia, West Virginia <p>4 = Atlanta: <p>Alabama, Florida, Georgia, Kentucky, Mississippi, North Carolina, South Carolina, Tennessee <p>5 = Chicago: <p>Illinois, Indiana, Michigan, Minnesota, Ohio, Wisconsin <p>6 = Dallas: <p>Arkansas, Louisiana, New Mexico, Oklahoma, Texas <p>7 = Kansas City: <p>Iowa, Kansas, Missouri, Nebraska <p>8 = Denver: <p>Colorado, Montana, North Dakota, South Dakota, Utah, Wyoming <p>9 = San Francisco: <p>Arizona, California, Hawaii, Nevada, Pacific Territories <p>10 = Seattle: <p>Alaska, Idaho, Oregon, Washington |
+| condition            | The medical conditions treated in the facility.<p>  <p> • Stroke <p> • Nervous system disorder (excluding stroke) <p> • Brain disease or condition (non- traumatic) <p> • Brain injury (traumatic) <p> • Spinal cord disease or condition (non-traumatic) <p> • Spinal cord injury (traumatic) <p> • Hip or femur fracture <p> • Hip or knee replacement, amputation or other bone or joint conditions <p> • All other conditions |
+| count           | The count of the corresponding medical condition for that facility.<p>  <p> Note: Medical conditions with counts of less than 11 are labeled as “less than 11” to protect patient confidentiality. |
+| footnote             | Indicates the relevant footnote.<p> <p> 1 = Number of cases is too small to report. <p> 2 = Data not available for this reporting period. |
+
 
 </details>
 
@@ -91,7 +96,7 @@ ___
 
 1. Clone this repository into your local machine using the following command:
 ```bash
-git clone git@github.com:Innis-Superstore-Sales/time-series-project.git
+git@github.com:AJMartinezLlanes/personal-project.git
 ```
 2. You will need Pandas, Numpy, Matplotlib, Seaborn, SKLearn, statsmodels, and prophet installed on your machine.
 3. If you don't have login credentials for the MySQL database hosted at data.codeup.com acquire login credentials.
