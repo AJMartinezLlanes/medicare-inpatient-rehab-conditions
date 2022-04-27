@@ -42,7 +42,7 @@ ___
 
 ## Project Summary
 
-<i>pending</i>
+We conducted analysis on 2021 medicare data 
 
 ___
 
@@ -64,8 +64,9 @@ ___
 - What state has the highest number of it? What city?
 - Which states has the lowest number of it? What city?
 - What about region?
-- Is there a relationship between discount and profit?
-
+- Is there a relationship between city and condition?
+- Is there a relationship between state and condition?
+- Is there a relationship between region and condition?
 ___
 
 ## Data Dictionary
@@ -104,6 +105,7 @@ git@github.com:AJMartinezLlanes/personal-project.git
 ___
 
 ## Outline of Project Plan
+
 ---
 ### Data Acquisition
 
