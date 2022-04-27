@@ -47,24 +47,23 @@ ___
 ___
 
 ## Project Goals
-,
-Given 2021 rehab facility conditions data, identify what condidition has the most occurrences. Train
+
+Given 2021 rehab facility conditions data, identify what condidition has the most occurrences. This information will affect new training, safety rules and procedures.
 
 ___
 
 ## Project Description
 
-With growing demands in the market the VP of sales at a superstore giant has asked us, what should our sales goals for 2018 be? Given sales data for the years 2014 through 2017 the goal of this project is to determine what trends exist in the sales data that can help us determine what sales trends we can expect in 2018. Furthermore, we aim to discover where strengths, or weaknesses, exist in the sales numbers so that we can provide recommendations for improving sales, and profit, going forward.
+Medicare wants to know what can we find from 2021 inpatient rehabilitation information. Simple question as to what was the leading condition, what state has the highest and lowest of it. This study will help on mandatory training decision, implementation of safety rules and procedures.
 
 ___
 
 ## Initial Questions
 
-- What are the total sales trends on a weekly basis?
-- What are the total sales trends on a monthly and quarterly basis?
-- Are there any times in the year when sales are consistently higher, or lower, than the rest of the year?
-- Does separating the data by region provide clearer sales trends?
-- Does separating the data by product category provide clearer sales trends?
+- What is the most occurrent condition?
+- What state has the highest number of it? What city?
+- Which states has the lowest number of it? What city?
+- What about region?
 - Is there a relationship between discount and profit?
 
 ___
@@ -82,7 +81,7 @@ ___
 | zip_code              | Two-character postal code where the facility is located |
 | county_name           | Facility county |
 | phone_number          | Facility ten digit telephone number |
-| cms_region            | The CMS region where the facility is located. Below is a key to the location of the regional offices and the states covered by each CMS region:<p> <p>1 = Boston: <p>Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Vermont <p>2 = New York: <p>New Jersey, New York, Puerto Rico, Virgin Islands <p>3 = Philadelphia: <p>Delaware, District of Columbia, Maryland, Pennsylvania, Virginia, West Virginia <p>4 = Atlanta: <p>Alabama, Florida, Georgia, Kentucky, Mississippi, North Carolina, South Carolina, Tennessee <p>5 = Chicago: <p>Illinois, Indiana, Michigan, Minnesota, Ohio, Wisconsin <p>6 = Dallas: <p>Arkansas, Louisiana, New Mexico, Oklahoma, Texas <p>7 = Kansas City: <p>Iowa, Kansas, Missouri, Nebraska <p>8 = Denver: <p>Colorado, Montana, North Dakota, South Dakota, Utah, Wyoming <p>9 = San Francisco: <p>Arizona, California, Hawaii, Nevada, Pacific Territories <p>10 = Seattle: <p>Alaska, Idaho, Oregon, Washington |
+| cms_region            | The CMS region where the facility is located. Below is a key to the location of the regional offices and the states covered by each CMS region:<p> <p>1 = Boston: <p>Connecticut, Maine, Massachusetts, New   Hampshire, Rhode Island, Vermont <p>2 = New York: <p>New Jersey, New York, Puerto Rico, Virgin Islands <p>3 = Philadelphia: <p>Delaware, District of Columbia, Maryland, Pennsylvania, Virginia, West Virginia <p>4 = Atlanta: <p>Alabama, Florida, Georgia, Kentucky, Mississippi, North Carolina, South Carolina, Tennessee <p>5 = Chicago: <p>Illinois, Indiana, Michigan, Minnesota, Ohio, Wisconsin <p>6 = Dallas: <p>Arkansas, Louisiana, New Mexico, Oklahoma, Texas <p>7 = Kansas City: <p>Iowa, Kansas, Missouri, Nebraska <p>8 = Denver: <p>Colorado, Montana, North Dakota, South Dakota, Utah, Wyoming <p>9 = San Francisco: <p>Arizona, California, Hawaii, Nevada, Pacific Territories <p>10 = Seattle: <p>Alaska, Idaho, Oregon, Washington |
 | condition            | The medical conditions treated in the facility.<p>  <p> • Stroke <p> • Nervous system disorder (excluding stroke) <p> • Brain disease or condition (non- traumatic) <p> • Brain injury (traumatic) <p> • Spinal cord disease or condition (non-traumatic) <p> • Spinal cord injury (traumatic) <p> • Hip or femur fracture <p> • Hip or knee replacement, amputation or other bone or joint conditions <p> • All other conditions |
 | count           | The count of the corresponding medical condition for that facility.<p>  <p> Note: Medical conditions with counts of less than 11 are labeled as “less than 11” to protect patient confidentiality. |
 | footnote             | Indicates the relevant footnote.<p> <p> 1 = Number of cases is too small to report. <p> 2 = Data not available for this reporting period. |
@@ -108,44 +107,34 @@ ___
 ---
 ### Data Acquisition
 
-In this phase the superstore data is acquired from the MySQL database hosted at data.codeup.com. The data is cached in a .csv file for faster loading and convenience.
+In this phase data is acquired from https://data.cms.gov/provider-data/dataset/ka5z-ibe3. The data is cached in a .csv file for faster loading and convenience.
 
-- The wrangle.ipynb notebook in the notebooks directory contains a reproducible step by step process for acquiring the data with details 
-and explanations.
+- The wrangle.ipynb notebook in the notebooks directory contains a reproducible step by step process for acquiring and preparing data with details and explanations.
 
-- The acquire.py file contains all the data acquisition code used in the final report notebook.
-
-- The _acquire.py file contains a data acquisition class used in the acquire.py file.
-
-- The get_db_url.py file contains code used to access the MySQL database.
+- The wrangle.py file contains all the data acquisition and preparation code used in the final report notebook.
 
 **Steps Taken:**
-1. Create an SQL query that can be used to acquire the data from the database.
+1. Download .csv file from the link provided.
 2. Ensure that all the data has been properly acquired.
-3. Encapsulate all acquisition code in acquire.py.
 
 ### Data Preparation
 
-In this phase the superstore data is prepared for exploration and modeling. Preparation includes renaming columns, removing unneeded columns, setting the date as the index, and separating the data into various groups that are to be analyzed. Additionally, code for removing outliers is created to allow for outliers to be removed from the dataset if they skew the data in a way that makes analysis difficult.
+In this phase the superstore data is prepared for exploration and modeling. Preparation includes renaming columns, removing unneeded columns, setting the date as the index, and separating the data into various groups that are to be analyzed.
 
 - The wrangle.ipynb notebook in the notebooks directory contains a reproducible step by step process for preparing the data with details and explanations.
-
-- The prepare.py file contains all the data preparation functions used in the wrangle module.
 
 - The wrangle.py file contains code used in the final report for acquiring and preparing the data.
 
 **Steps Taken:**
 1. Analyze the data to determine how it should be cleaned.
 2. Rename columns for ease of use.
-3. Remove unneeded columns.
-4. Set the date to a datetime type and set it as the index.
-5. Analyze the dates to determine if upsampling, or downsampling, is necessary.
-6. Separate the data into various groups that will be analyzed in exploration.
-7. Encapsulate all preparation code in prepare.py and wrangle.py.
+3. Remove unnecessary columns.
+4. Separate the data into various groups that will be analyzed in exploration.
+5. Encapsulate all preparation code in wrangle.py.
 
 ### Exploratory Analysis
 
-In this phase the superstore data is analyzed to determine what sales trends exist in the data. We start by analyzing total sales by weeks, months, quarters, and years to see if any patterns exist. We also analyze discounts and profits to determine if any insights can be gained from those features. We then perform similar analysis for each region represented in the data and each product category represented in the data. Finally, we perform additional analysis with outliers removed to see if the trends change depending on the absence of outlying data.
+In this phase data is analyzed to determine what are the most common conditions, what states and regions are the highest and lowest. We start by analyzing total sales by weeks, months, quarters, and years to see if any patterns exist. We also analyze discounts and profits to determine if any insights can be gained from those features. We then perform similar analysis for each region represented in the data and each product category represented in the data. Finally, we perform additional analysis with outliers removed to see if the trends change depending on the absence of outlying data.
 
 - The explore.ipynb notebook in the notebooks directory contains a reproducible step by step process for exploring the data with details and explanations.
 
