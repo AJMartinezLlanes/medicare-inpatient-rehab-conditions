@@ -60,7 +60,7 @@ ___
 
 ## Initial Questions
 
-- What is the most occurrent condition?
+- What is the most occurring condition?
 - What state has the highest number of it? What city?
 - Which states has the lowest number of it? What city?
 - What about region?
