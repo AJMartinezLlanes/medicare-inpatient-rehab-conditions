@@ -7,17 +7,12 @@ in the process of producing the final deliverables.
 <summary>Click to expand</summary>
 
 - README.md: Contains a full outline of the project, information regarding the format of the repository, and instructions for reproducing the results.
-- acquire.py: Contains a class that can be used to acquire data from .csv file.
-- prepare.py: Contains functions used for preparing the data for exploration and modeling including cleaning data, removing outliers, and splitting data.
+- final.py: Contains all the functions used on final report notebook.
 - wrangle.py: Contains convenience functions that can be used to both acquire and prepare the data in one step.
-- explore.py: Contains functions used for producing visualizations in the final report.
-- model.py: Contains functions used for building various forecast models.
-- evaluate.py: Contains functions used for evaluating forecast models.
-- superstore_sales_report.ipynb: The final report containing an outline of all steps taken, with results, and extraneous details removed.
-- notebooks/
-    - wrangle.ipynb: Contains all the steps taken in the acquisition and preparation phases of the pipeline.
-    - explore.ipynb: Contains all the steps taken in the exploratory analysis phase of the pipeline.
-    - model.ipynb: Contains all the steps taken in the modeling phase of the pipeline.
+- final_report.ipynb: The final report containing an outline of all steps taken, with results, and extraneous details removed.
+- wrangle.ipynb: Contains all the steps taken in the acquisition and preparation phases of the pipeline.
+- explore.ipynb: Contains all the steps taken in the exploratory analysis phase of the pipeline.
+- model.ipynb: Contains all the steps taken in the modeling phase of the pipeline.
 
 </details>
 
@@ -102,9 +97,6 @@ git@github.com:AJMartinezLlanes/personal-project.git
 3. File can be found at: https://data.cms.gov/provider-data/dataset/ka5z-ibe3
 4. Now you can start a Jupyter Notebook session and execute the code blocks in the medicare_conditions.ipynb notebook.
 
-___
-
-## Outline of Project Plan
 
 ---
 ### Data Acquisition
@@ -136,45 +128,40 @@ In this phase the superstore data is prepared for exploration and modeling. Prep
 
 ### Exploratory Analysis
 
-In this phase data is analyzed to determine what are the most common conditions, what states and regions are the highest and lowest. We start by analyzing total sales by weeks, months, quarters, and years to see if any patterns exist. We also analyze discounts and profits to determine if any insights can be gained from those features. We then perform similar analysis for each region represented in the data and each product category represented in the data. Finally, we perform additional analysis with outliers removed to see if the trends change depending on the absence of outlying data.
+In this phase data is analyzed to determine what are the most common conditions, what states and regions are the highest and lowest. 
+We start by analyzing the states with the contidions and regions. We also analyzed Texas and Vermount and conditions. Lastly we went into the cities in Texas and conditions.
 
 - The explore.ipynb notebook in the notebooks directory contains a reproducible step by step process for exploring the data with details and explanations.
 
-- The explore.py file contains all the data exploration functions used in the final report notebook.
+- The wrangle.py file contains all the data exploration functions used in the final report notebook.
 
 **Steps Taken:**
-1. Analyze weekly, monthly, quarterly, and yearly total sales data.
-2. Analyze weekly, monthly, quarterly, and yearly sales data per region.
-3. Analyze weekly, monthly, quarterly, and yearly sales data per product category.
-4. Analyze the discount feature in the data being sure to resample with average instead of sum.
-5. Perform additional analysis on total sales with outliers removed.
-6. Document all key takeaways.
-7. Encapsulate any code that will be used in the final report in explore.py.
+1. Analyze data per region.
+2. Analyze data per state.
+3. Go into detail on highest and lowest month.
+4. Analyze data per cities in Texas.
+5. Encapsulate all preparation for final report in final.py.
 
 ### Modeling
 
-In this phase a sales forecasting model is produced to predict the expected sales, and profit, trends in 2018. Before doing this the data is split into train, validate, and test datasets to keep some data as unseen in order to maintain the integrity of our forecasting models. Various models are developed and the best one is chosen to produce the 2018 sales forecast.
+In this phase we tried three different models that outperformed the baseline.
 
 - The model.ipynb notebook in the notebooks directory contains a reproducible step by step process for exploring the data with details and explanations.
 
-- The model.py file contains all the modeling functions used in the final report notebook and model.ipynb notebook.
+- The wrangle.py file contains all the modeling functions used in the final report notebook and model.ipynb notebook.
 
-- The evaluate.py file contains helper functions used for evaluating the performance of the forecasting models.
 
 **Steps Taken:**
 1. Acquire, prepare, and split the data.
 2. Establish a baseline model.
-3. Create various total sales forecasting models.
-4. Create various ensemble models using the data separated by region.
-5. Create various ensemble models using the data separated by product category.
-6. Evaluate the performance of all models and choose the model with the best performance.
-7. Use the best model to produce a sales, and profit, forecast for 2018.
+3. Create various models.
+4. Evaluate the performance of all models and choose the model with the best performance.
 
 ___
 
 ## Conclusion
 
-<i>pending</i>
+The state of Texas had the highest number of strokes. All other conditions was the highest number of instances, but we went with stroke since was the most singular condition. Overall there was a lot of great info and I would like to go into more states and see what is the highest condition in each. 
 
 ___
 

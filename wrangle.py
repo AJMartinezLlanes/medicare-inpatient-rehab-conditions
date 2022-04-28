@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from scipy import stats
 
 from sklearn.model_selection import train_test_split
 
@@ -50,3 +51,28 @@ def wrangle(df):
     
     #return split data 
     return train, validate, test
+
+def evaluate_hypothesis(p: float, alpha: float = 0.05, output: bool = True) -> bool:
+   
+    if p < alpha:
+        if output:
+            print('\nReject H0')
+        return False
+    else: 
+        if output:
+            print('\nFail to Reject H0')
+        return True
+
+def chi2_test(data_for_category1, data_for_category2, alpha=.05):
+
+    # create dataframe of observed values
+    observed = pd.crosstab(data_for_category1, data_for_category2)
+    
+    # conduct test using scipy.stats.chi2_contingency() test
+    chi2, p, degf, expected = stats.chi2_contingency(observed)
+    
+    # round the expected values
+    expected = expected.round(1)
+
+    # evaluate the hypothesis against the established alpha value
+    evaluate_hypothesis(p, alpha)
